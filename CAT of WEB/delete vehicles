@@ -1,0 +1,26 @@
+<?php
+include('db_connection.php');
+// Check if vehicle_id is set
+if(isset($_GET['Vehicle_id'])) {
+    $vehicle_id = $_GET['Vehicle_id'];
+    
+    // Prepare and execute the DELETE statement
+    // Disable foreign key checks
+    $connection->query('SET FOREIGN_KEY_CHECKS=0');
+
+    // Perform delete operation
+    $stmt = $connection->prepare("DELETE FROM vehicles WHERE Vehicle_id=?");
+    $stmt->bind_param("i", $Vehicle_id);
+    if ($stmt->execute()) {
+        // Redirect after successful deletion
+        header('Location: vehicles.php?msg=Data deleted successfully');
+        exit(); // Ensure no further processing after redirection
+    } else {
+        echo "Error deleting data: " . $stmt->error;
+    }
+    $stmt->close();
+
+    // Re-enable foreign key checks
+    $connection->query('SET FOREIGN_KEY_CHECKS=1');
+}
+?>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- My Name: IKIREZI Justine RegNo: 222015028-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <style>
+        body {
+            background-color: grey; /* Changed background color to grey */
+            color: black;
+        }
+        form {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            margin: 0 auto;
+        }
+        input[type="submit"], input[type="reset"] {
+            padding: 5px 15px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+<center>
+    <h2>Login Form</h2>
+    <form action="login.php" method="post">
+        <label>Email:</label>
+        <input type="email" name="email" required><br><br>
+        <label>Password:</label>
+        <input type="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+        <input type="reset" value="Cancel">
+    </form>
+</center>
+</body>
+</html>
